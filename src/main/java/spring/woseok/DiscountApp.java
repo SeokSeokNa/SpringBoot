@@ -7,7 +7,7 @@ import spring.woseok.order.Order;
 import spring.woseok.order.OrderServiceImpl;
 
 public class DiscountApp {
-
+    int i = 0;
     public static void main(String[] args) {
         MemberServiceImpl memberService = new MemberServiceImpl();
         OrderServiceImpl orderService = new OrderServiceImpl();
