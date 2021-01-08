@@ -2,7 +2,9 @@ package spring.woseok.order;
 
 import org.assertj.core.api.AssertionInfo;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import spring.woseok.AppConfig;
 import spring.woseok.member.Grade;
 import spring.woseok.member.Member;
 import spring.woseok.member.MemberService;
@@ -10,8 +12,14 @@ import spring.woseok.member.MemberServiceImpl;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {
