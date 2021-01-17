@@ -1,8 +1,10 @@
 package spring.woseok.discount;
 
+import org.springframework.stereotype.Component;
 import spring.woseok.member.Grade;
 import spring.woseok.member.Member;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;

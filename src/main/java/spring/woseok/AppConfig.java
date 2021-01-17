@@ -25,15 +25,19 @@ public class AppConfig {
 
     @Bean   //@Bean(name = "mem")  이런식으로 Bean 객체 이름을 정할 수 있다.
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
+
     }
     @Bean
     public DiscountPolicy discountPolicy() {
