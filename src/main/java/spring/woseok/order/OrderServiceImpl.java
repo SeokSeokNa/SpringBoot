@@ -1,5 +1,6 @@
 package spring.woseok.order;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.woseok.discount.DiscountPolicy;
@@ -11,17 +12,19 @@ import spring.woseok.member.MemoryMemberRepository;
 
 import java.util.Optional;
 @Component
+@RequiredArgsConstructor // final 키워드를 가진 필드를 파라미터로 가지는 생성자를 자동으로 만들어준다 !!!!
 public class OrderServiceImpl implements OrderService {
 
-    
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;;
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+    private  final MemberRepository memberRepository;
+    private  final DiscountPolicy discountPolicy;;
+
+
+//    @Autowired // 생성자가 하나 일 경우 생략 가능하다
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
